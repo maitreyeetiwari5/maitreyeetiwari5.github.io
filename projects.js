@@ -48,10 +48,10 @@ window.PROJECTS = [
   {
     title: 'Finance Forecast & Variance Automation',
     line: 'Flags the variances that matter and explains only the ones with a known cause.',
-    stack: 'Python · Excel · Chart.js',
+    stack: 'Python · Excel · Chart.js · Power BI',
     cats: ['auto'],
     github: GH + '/Finance-Forecast-Variance-Automation',
-    links: [['Live dashboard', 'https://maitreyeetiwari5.github.io/Finance-Forecast-Variance-Automation/']],
+    links: [['Live dashboard', 'https://maitreyeetiwari5.github.io/Finance-Forecast-Variance-Automation/'], ['Power BI report', GH + '/Finance-Forecast-Variance-Automation/tree/main/Power%20BI']],
     glance: [['34.8% to 12.8%', 'share of rows flagged'], ['6 of 6', 'known anomalies caught'], ['7.0%', 'forecast error (MAPE)']],
     sections: [
       { h: 'Why I built it', p: 'Reviewing budget against actuals across dozens of line items takes hours of scanning, or leans on one flat threshold. A flat threshold over-flags noisy lines like campaign spend and misses real problems in stable ones like salaries. Detecting what changed is a good job for automation. Explaining why it changed is not, and this tool does not pretend otherwise.' },
@@ -63,6 +63,7 @@ window.PROJECTS = [
       ] },
       { h: 'How I checked it', p: 'I generated 18 months of data for 5 business units and 6 line items, 540 rows in all, with 6 scripted anomalies such as a campaign overspend, a fuel cost spike and a hiring freeze. My first calibration found only 4 of the 6. The validation step caught that before it shipped, and the final thresholds find all 6.' },
       { h: 'What came out', p: 'The share of rows flagged fell from 34.8% with fixed thresholds to 12.8%. Of 69 flagged rows, 6 matched a documented driver and were explained, and the rest went to an analyst. Results appear in a live, filterable dashboard and a three-sheet Excel workbook (Summary, Variance Detail, Action Items) with the best-explained, largest rows first.' },
+      { h: 'Power BI version', p: 'I also rebuilt the output as a two-page Power BI report. Page 1 is an executive scorecard: actuals against budget and forecast over time, variance by business unit, flag rate (12.8%) and forecast error, with slicers for business unit and line item. Page 2 lists the 69 flagged variances with their commentary, splits them into 6 with a known driver and 63 pending analyst review, and compares each line item\'s original threshold with its calibrated one. Power Query merges the commentary file into the flags table, and DAX measures calculate the flag rate and forecast error on a related data model. The report file and a PDF are in the repo.' },
       { h: 'Limits', p: 'All data is synthetic, built so the right answers were known. Commentary is rule-based, not AI-written. I built it with AI assistance and checked every output against the known answers instead of trusting it.' }
     ]
   },
